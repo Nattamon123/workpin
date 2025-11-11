@@ -1,0 +1,190 @@
+/* Modern MainLayout CSS - Green & Blue Theme */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-layout {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family:
+        "Inter",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+}
+
+/* Header Styles - ถูกย้ายไปใช้ styled-components แล้ว */
+
+/* Outlet (Main Content Area) */
+.outlet {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-height: 400px;
+}
+
+/* Footer Styles */
+.footer {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: white;
+    padding: 2rem 0;
+    margin-top: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #00d2ff, #3a7bd5, #48bb78, #00d2ff);
+    background-size: 300% 100%;
+    animation: footerGradient 5s ease infinite;
+}
+
+@keyframes footerGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #00d2ff;
+    font-weight: 700;
+}
+
+.footer-info p {
+    color: #bdc3c7;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-social a {
+    color: white;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    font-size: 1.2rem;
+}
+
+.footer-social a:hover {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    transform: translateY(-3px) rotate(5deg);
+    box-shadow: 0 8px 25px rgba(0, 210, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .outlet {
+        padding: 1.5rem;
+        border-radius: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .footer-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-info p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .outlet {
+        padding: 1rem;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* Loading Animation */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 210, 255, 0.2);
+    border-top: 4px solid #00d2ff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Smooth Transitions */
+* {
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
